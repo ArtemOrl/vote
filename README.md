@@ -7,6 +7,14 @@ Project Voting for the restaurant
 * Hibernate;
 * SQL databases. 
 
+#### Users in DB
+
+    User login: user@yandex.ru
+    password: password
+    
+    Admin login: admin@gmail.com
+    password: admin
+
 #### GET ITEMS to vote after!
 
 
