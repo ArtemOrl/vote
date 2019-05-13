@@ -1,3 +1,6 @@
+
+-- PostgreSQL
+
 DROP TABLE IF EXISTS vote;
 DROP TABLE IF EXISTS user_roles;
 DROP TABLE IF EXISTS meals;
