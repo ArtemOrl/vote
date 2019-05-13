@@ -89,4 +89,27 @@ public class VoteService {
             return voteRepository.save(new Vote(userRepository.getOne(LoggedUser.id()), menu, today));
         }
     }
+
+    /**
+     * This setter method should be used only by unit tests.
+     * @param userRepositoryMock
+     */
+    public void setUserRepository(UserRepository userRepositoryMock) {
+        this.userRepository = userRepositoryMock;
+    }
+
+    /**
+     * This setter method should be used only by unit tests.
+     * @param restaurantRepositoryMock
+     */
+    public void setRestaurantRepository(RestaurantRepository restaurantRepositoryMock) {
+        this.restaurantRepository = restaurantRepositoryMock;
+    }
+    /**
+     * This setter method should be used only by unit tests.
+     * @param menuRepositoryMock
+     */
+    public void setMenuRepository(MenuRepository menuRepositoryMock) {
+        this.menuRepository = menuRepositoryMock;
+    }
 }
