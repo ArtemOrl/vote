@@ -154,28 +154,20 @@ public class VoteServiceTest {
 
 	@Test
 	public void voteServiceGetMenusTest()  {
-
 		when(menuRepositoryMock.findByDate(LocalDate.now())).thenReturn(listMenu);
-
 		assertEquals(listMenu, voteService.getItem("menus"));
 	}
 
 	@Test
 	public void voteServiceGetLunchesTest(){
-
 		when(lunchRepositoryMock.findByDate(LocalDate.now())).thenReturn(listLunch);
-
 		assertEquals(listLunch, voteService.getItem("lunches"));
-
 	}
 
 	@Test
 	public void voteServiceGetVotesTest(){
-
 		when(voteRepositoryMock.getAllByDate(LocalDate.now())).thenReturn(listVote);
-
 		assertEquals(listVote, voteService.getItem("votes"));
-
 	}
 
 	@Test
@@ -183,11 +175,13 @@ public class VoteServiceTest {
 		when(restaurantRepositoryMock.save(restaurant)).thenReturn(restaurant);
 		assertEquals(true, voteService.saveRestaurant(restaurant));
 	}
+
 	@Test
 	public void saveMenuTest(){
 		when(menuRepositoryMock.save(menu)).thenReturn(menu);
 		assertEquals(menu, voteService.saveMenu(menu));
 	}
+
 	@Test
 	public void saveLaunchTest(){
 		when(lunchRepositoryMock.save(lunch)).thenReturn(lunch);
