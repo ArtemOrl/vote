@@ -89,8 +89,6 @@ public class VoteServiceTest {
 
 	private static VoteRepository voteRepositoryMock;
 
-	private static AccessToken mockAccessToken;
-
 	@BeforeAll
 	public static void setUp(){
 		voteService = new VoteService();
@@ -101,7 +99,6 @@ public class VoteServiceTest {
 		lunchRepositoryMock = mock(LunchRepository.class);
 		voteRepositoryMock = mock(VoteRepository.class);
 
-		mockAccessToken = mock(AccessToken.class);
 		authentication = mock(Authentication.class);
 		securityContext = mock(SecurityContext.class);
 
@@ -185,27 +182,6 @@ public class VoteServiceTest {
 	public void saveLaunchTest(){
 		when(lunchRepositoryMock.save(lunch)).thenReturn(lunch);
 		assertEquals(lunch, voteService.savelunch(lunch));
-	}
-
-	public static class MockSecurityContext implements SecurityContext {
-
-		private static final long serialVersionUID = -1386535243513362694L;
-
-		private Authentication authentication;
-
-		public MockSecurityContext(Authentication authentication) {
-			this.authentication = authentication;
-		}
-
-		@Override
-		public Authentication getAuthentication() {
-			return this.authentication;
-		}
-
-		@Override
-		public void setAuthentication(Authentication authentication) {
-			this.authentication = authentication;
-		}
 	}
 
 	@Test
