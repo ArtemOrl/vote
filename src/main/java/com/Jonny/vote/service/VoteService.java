@@ -33,7 +33,6 @@ public class VoteService {
     @Autowired
     private MenuRepository menuRepository;
 
-
     public List<Restaurant> getAllRestaurants(){
         return restaurantRepository.findAll();
     }
@@ -111,5 +110,19 @@ public class VoteService {
      */
     public void setMenuRepository(MenuRepository menuRepositoryMock) {
         this.menuRepository = menuRepositoryMock;
+    }
+    /**
+     * This setter method should be used only by unit tests.
+     * @param lunchRepositoryMock
+     */
+    public void setLunchRepository(LunchRepository lunchRepositoryMock) {
+        this.lunchRepository = lunchRepositoryMock;
+    }
+    /**
+     * This setter method should be used only by unit tests.
+     * @param voteRepositoryMock
+     */
+    public void setVoteRepository(VoteRepository voteRepositoryMock) {
+        this.voteRepository = voteRepositoryMock;
     }
 }
