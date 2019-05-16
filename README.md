@@ -50,7 +50,7 @@ Used technologies
 #### USERS should vote for the restaurant (only one vote per day)
      
      How to vote for restaurant?
-     First you need to see the lists of menus for today and to keep in mind the name of restorant, for which you will vote
+     First you need to see the lists of menus for today and to keep in mind the name of restaurant, for which you will vote
      When go to url with basic authorization and use method POST
      http://localhost:8080/voteForRestaurant?name={name of the restaurant}
      
