@@ -1,11 +1,12 @@
 # vote spring-boot
 Project Voting for the restaurant
 
-Технологии проекта
+Used technologies
 * Spring-Boot 2;
 * Spring-Security;
 * Hibernate;
-* SQL databases. 
+* SQL databases;
+* JUnit and Mockito for tests. 
 
 #### Users in DB
 
@@ -26,7 +27,7 @@ Project Voting for the restaurant
     http://localhost:8080/items?item=votes returns JSON of votes for today;
 
 
-#### See All the users
+#### See all users
 
     
     How to get users?
