@@ -89,8 +89,6 @@ public class VoteServiceTest {
 
 	private static VoteRepository voteRepositoryMock;
 
-	private static AccessToken mockAccessToken;
-
 	@BeforeAll
 	public static void setUp(){
 		voteService = new VoteService();
@@ -101,7 +99,6 @@ public class VoteServiceTest {
 		lunchRepositoryMock = mock(LunchRepository.class);
 		voteRepositoryMock = mock(VoteRepository.class);
 
-		mockAccessToken = mock(AccessToken.class);
 		authentication = mock(Authentication.class);
 		securityContext = mock(SecurityContext.class);
 
@@ -112,7 +109,6 @@ public class VoteServiceTest {
 		voteService.setVoteRepository(voteRepositoryMock);
 
 	}
-
 
 	@Test
 	public void voteServiceGetUsersTest(){
@@ -154,28 +150,20 @@ public class VoteServiceTest {
 
 	@Test
 	public void voteServiceGetMenusTest()  {
-
 		when(menuRepositoryMock.findByDate(LocalDate.now())).thenReturn(listMenu);
-
 		assertEquals(listMenu, voteService.getItem("menus"));
 	}
 
 	@Test
 	public void voteServiceGetLunchesTest(){
-
 		when(lunchRepositoryMock.findByDate(LocalDate.now())).thenReturn(listLunch);
-
 		assertEquals(listLunch, voteService.getItem("lunches"));
-
 	}
 
 	@Test
 	public void voteServiceGetVotesTest(){
-
 		when(voteRepositoryMock.getAllByDate(LocalDate.now())).thenReturn(listVote);
-
 		assertEquals(listVote, voteService.getItem("votes"));
-
 	}
 
 	@Test
@@ -183,43 +171,24 @@ public class VoteServiceTest {
 		when(restaurantRepositoryMock.save(restaurant)).thenReturn(restaurant);
 		assertEquals(true, voteService.saveRestaurant(restaurant));
 	}
+
 	@Test
 	public void saveMenuTest(){
 		when(menuRepositoryMock.save(menu)).thenReturn(menu);
 		assertEquals(menu, voteService.saveMenu(menu));
 	}
+
 	@Test
 	public void saveLaunchTest(){
 		when(lunchRepositoryMock.save(lunch)).thenReturn(lunch);
 		assertEquals(lunch, voteService.savelunch(lunch));
 	}
 
-	public static class MockSecurityContext implements SecurityContext {
-
-		private static final long serialVersionUID = -1386535243513362694L;
-
-		private Authentication authentication;
-
-		public MockSecurityContext(Authentication authentication) {
-			this.authentication = authentication;
-		}
-
-		@Override
-		public Authentication getAuthentication() {
-			return this.authentication;
-		}
-
-		@Override
-		public void setAuthentication(Authentication authentication) {
-			this.authentication = authentication;
-		}
-	}
-
 	@Test
 	@WithMockUser(username = "User", password = "password", roles = "ROLES_USER")
 	public void voteForRestaurantTest(){
 
-		// Mock user autorisation
+		// Mock user authorization
 		securityContext.setAuthentication(authentication);
 		when(securityContext.getAuthentication()).thenReturn(authentication);
 		SecurityContextHolder.setContext(securityContext);
